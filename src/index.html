@@ -9,23 +9,57 @@
 </head>
 
 <body>
-    <header>
+    <header class="topo">
         <h1>Controle de Estoque</h1>
+        <nav>
+      <button data-tela="painel" class="ativo">Painel</button>
+      <button data-tela="cadastro">Cadastro</button>
+      <button data-tela="estoque">Estoque</button>
+      <button data-tela="historico">Histórico</button>
+    </nav>
+    <span id="data"></span>
     </header>
 
     <main>
+        <section id="painel" class="tela ativa">
+      <div class="resumo">
+        <div><b id="r-produtos">0</b><span>Produtos</span></div>
+        <div><b id="r-itens">0</b><span>Itens em estoque</span></div>
+        <div><b id="r-valor">R$ 0,00</b><span>Valor do estoque</span></div>
+        <div class="alerta"><b id="r-baixo">0</b><span>Estoque baixo</span></div>
+      </div>
+      <div class="acoes">
+        <button class="primario" data-ir="cadastro">Novo produto</button>
+        <button data-ir="cadastro">Registrar movimentação</button>
+      </div>
+      <h2>Produtos com estoque baixo</h2>
+      <ul id="lista-alertas" class="alertas"></ul>
+      <h2>Últimas movimentações</h2>
+      <div class="rolagem"><table id="tab-recentes"></table></div>
+        </section>
+
+        <section id="cadastro" class="tela">
+      <div class="duas">
+        <form id="form-produto" novalidate>
+          <h2 id="titulo-form">Cadastrar novo produto</h2>
+          <input type="hidden" id="p-id">
+          <label>Nome: <input id="p-nome" type="text"></label>
+          <label>Categoria: <input id="p-cat" type="text" list="categorias"></label>
+          <datalist id="categorias"></datalist>
+          <label>Preço unitário (R$): <input id="p-preco" type="number" min="0" step="0.01"></label>
+          <label>Quantidade inicial: <input id="p-qtd" type="number" min="0" step="1" el>
+          <label>Estoque mínimo: <input id="p-min" type="number" min="0" step="1"></label>
+          <p class="erro" id="erro-produto"></p>
+          <div class="botoes">
+            <button type="button" id="cancelar-produto">Cancelar</button>
+            <button type="submit" class="primario">Salvar</button>
+          </div>
+        </form>
+        </section>
         <h2>Produtos:</h2>
         <label>Buscar Produtos:</label>
         <input type="text" id="nome" name="nome" placeholder="Digite aqui...">
 
-        <h2>Cadastrar Produtos:</h2>
-        <label>Nome do produto: </label>
-        <input type="text" id="nome" name="nome" placeholder="Digite aqui...">
-        <label>Categoria do produto: </label>
-        <input type="text" id="nome" name="nome" placeholder="Bebidas, Carnes, etc...">
-        <label>Quantidades de produtos: </label>
-        <input type="text" id="nome" name="nome" placeholder="Quantas Unidades?">
-    
         <h2>Estoque Geral:</h2>
 
     </main>
