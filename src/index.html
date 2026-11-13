@@ -56,6 +56,39 @@
           </div>
         </form>
         </section>
+
+        <form id="form-mov" novalidate>
+          <h2>Registrar movimentação</h2>
+          <label>Produto <select id="m-produto"></select></label>
+          <label>Tipo
+            <select id="m-tipo"><option value="entrada">Entrada</option><option value="saida">Saída</option></select>
+          </label>
+          <label>Quantidade <input id="m-qtd" type="number" min="1" step="1"></label>
+          <p class="erro" id="erro-mov"></p>
+          <div class="botoes">
+            <button type="button" id="cancelar-mov">Cancelar</button>
+            <button type="submit" class="primario">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="estoque" class="tela">
+      <div class="filtros">
+        <input id="busca" type="search" placeholder="Buscar por nome">
+        <select id="filtro-cat"><option value="">Todas as categorias</option></select>
+        <button id="exportar">Exportar CSV</button>
+      </div>
+      <div class="rolagem"><table id="tab-estoque"></table></div>
+      <p id="total-estoque" class="total"></p>
+    </section>
+
+    <section id="historico" class="tela">
+      <h2>Histórico de movimentações</h2>
+      <div class="rolagem"><table id="tab-historico"></table></div>
+    </section>
+  </main>
+  
         <h2>Produtos:</h2>
         <label>Buscar Produtos:</label>
         <input type="text" id="nome" name="nome" placeholder="Digite aqui...">
