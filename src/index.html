@@ -88,15 +88,19 @@
       <div class="rolagem"><table id="tab-historico"></table></div>
     </section>
   </main>
-  
-        <h2>Produtos:</h2>
-        <label>Buscar Produtos:</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite aqui...">
-
-        <h2>Estoque Geral:</h2>
-
-    </main>
+  <script src="script.js" defer></script>
+  <script>
+    function mostrarAviso(msg){
+      var d=document.createElement("div");
+      d.style.cssText="background:#b3362b;color:#fff;padding:12px 16px;font:16px sans-serif";
+      d.textContent=msg;
+      document.body.insertBefore(d,document.body.firstChild);
+    }
+    window.addEventListener("error",function(e){mostrarAviso("Erro no script: "+e.message);});
+    window.addEventListener("load",function(){
+      if(!window.stockOk) mostrarAviso("O script.js não carregou. Confira se ele está na mesma pasta do index.html, com esse nome exato.");
+    });
+  </script>
 
 </body>
-
 </html>
